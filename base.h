@@ -24,6 +24,8 @@ void save_the_data(linkedlist_t * l) ;
 
 void check_a_number(char number[]) ;
 
+int check_a_score(int score) ;
+
 void modify_a_member(linkedlist_t *l) ;
 
 int find_a_location (linkedlist_t * l, char number[]) ;

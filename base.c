@@ -120,11 +120,12 @@ void add_a_member(linkedlist_t * l){
   scanf("%s", name) ;
   printf("=>(Student Number) : ") ;
   scanf("%s", number) ;
-
-  check_a_number(number) ;
     
   printf("Enter as follow form(Attendance, Midterm, Team projects, Assignment)\n=>") ;
-  scanf("%d, %d, %d, %d", &attend, &midterm, &project, &assign) ;
+  scanf("%d", &attend) ;
+  scanf("%d", &midterm) ;
+  scanf("%d", &project) ;
+  scanf("%d", &assign) ;
   linkedlist_insert(l, name, number, attend, midterm, project, assign) ;
   printf("=>Add is complete!\n\n");
   getchar() ;
@@ -136,12 +137,14 @@ void linkedlist_insert (linkedlist_t * l, char name[], char number[], int attend
   node_t * n ;
 	n = (node_t *) malloc(sizeof(* n)) ;
 
+  check_a_number(number) ;
+
 	strcpy(n->name, name) ;
   strcpy(n->number, number) ;
-  n->attend = attend ;
-  n->midterm = midterm ;
-  n->project = project ;
-  n->assign = assign ;
+  n->attend = check_a_score(attend) ;
+  n->midterm = check_a_score(midterm) ;
+  n->project = check_a_score(project) ;
+  n->assign = check_a_score(assign) ;
 	n->next = 0x0 ;
 
 	if (l->length == 0)
@@ -249,16 +252,28 @@ void save_the_data(linkedlist_t * l){
 }
 
 void check_a_number(char number[]){
-  char temp[20] = {0x0} ;
 
   if(strlen(number)<8){
-    for(int i=0; i < 8 - strlen(number); i++)
+  	char temp[20] = {0x0} ;
+    
+		for(int i=0; i < 8 - strlen(number); i++)
       strcat(temp, "0") ;
     strcat(temp, number) ;
     strcpy(number, temp) ;
   }
-  else if(strlen(number)>8)
+  else if(8 < strlen(number))
     number[8] = '\0' ;
+}
+
+
+int check_a_score(int score){
+	
+	if(score < 0) //input : negative number
+		score *= -1 ;
+	while(100 < score) // input : oversize
+		score /= 10 ;
+	
+	return score ;
 }
 
 void modify_a_member(linkedlist_t *l){
