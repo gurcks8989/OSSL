@@ -61,15 +61,12 @@ int linkedlist_retrieve (linkedlist_t * l, int pos, char name[], char number[], 
 		itr = itr->next ;
   }
   
+	memset(name, 0, 20) ; 
   if(strlen(itr->name) == 6){
-    for(int j = 0; j < strlen(itr->name); j++){
-      memset(buffer, 0, sizeof(buffer)) ;
-      temp = itr->name[j] ;
-      strcat(buffer, &temp) ;
-      if(2 == j)
-        strcat(buffer, "  ") ;
-      strcat(name, buffer) ;
-    }
+		strcpy(buffer, itr->name) ;
+		strncpy(buffer, "_  ", 3) ;
+		strncat(name, itr->name, 3) ;
+		strcat(name, strtok(buffer, "_")) ;
   }
   else
     strcpy(name, itr->name) ;
@@ -185,7 +182,7 @@ void load_the_data(linkedlist_t * l){
     }
   }
 
-  fseek(fp, 69, SEEK_CUR);
+  fseek(fp, 68, SEEK_CUR);
   fread(number, 8, 1, fp);
 
   fseek(fp, 56, SEEK_CUR);
@@ -236,7 +233,7 @@ void save_the_data(linkedlist_t * l){
     score = get_a_score(attend, midterm, project, assign) ;
 
     fprintf(fp, "|=============================================|\n") ;
-    fprintf(fp, "|  Name : %s                              ||\n", name) ;
+    fprintf(fp, "|  Name : %s                              |\n", name) ;
     fprintf(fp, "|                  Student number : %s  |\n", number) ;
     fprintf(fp, "|  _________________________________________  |\n") ;
     fprintf(fp, "|  %3d    •   Attendance………………..10%%           |\n", attend) ;
