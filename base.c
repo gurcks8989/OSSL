@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include "base.h"
 
 linkedlist_t * linkedlist_alloc (){
@@ -116,15 +117,15 @@ void add_a_member(linkedlist_t * l){
   int attend = -1, midterm = -1, project = -1, assign = -1, score ;
 
   printf("Please enter the name and student number of the member\n") ;
-  printf("=>(Korean Name) : ") ;
+  printf("=>(Korean Name) - range(2 ~ 3 letters) : ") ;
   scanf("%s", name) ;
   printf("=>(Student Number) : ") ;
   scanf("%s", number) ;
     
   printf("Enter as follow form(Attendance, Midterm, Team projects, Assignment)\n=>") ;
-  scanf("%d", &attend) ;
-  scanf("%d", &midterm) ;
-  scanf("%d", &project) ;
+  scanf("%d,", &attend) ;
+  scanf("%d,", &midterm) ;
+  scanf("%d,", &project) ;
   scanf("%d", &assign) ;
   linkedlist_insert(l, name, number, attend, midterm, project, assign) ;
   printf("=>Add is complete!\n\n");
@@ -256,13 +257,19 @@ void check_a_number(char number[]){
   if(strlen(number)<8){
   	char temp[20] = {0x0} ;
     
-		for(int i=0; i < 8 - strlen(number); i++)
+		for(int i=0; i < 8 - strlen(number); i++){
       strcat(temp, "0") ;
+		}
     strcat(temp, number) ;
     strcpy(number, temp) ;
   }
   else if(8 < strlen(number))
     number[8] = '\0' ;
+
+	for(int i = 0; i < 8; i++)
+		while(!isdigit(number[i]))
+			if('9' < number[i] || number[i] < '0')
+				number[i] = '0' ;
 }
 
 
@@ -411,23 +418,30 @@ void delecte_a_member(linkedlist_t * l, int pos){
 void clear_all_members(linkedlist_t * l){
 
   char answer ;
-  int k = 0 ;
+  int k = 1 ;
+
+ 	printf("Are you sure you want to delete all members?(Y/N) : ") ;
+  while(k){
+  	scanf("%c", &answer) ;
+		while(getchar() != '\n');
+
+		switch(answer){
+				case 'Y' :
+				case 'y' :
+					k = 0 ;
+					break ;
+				case 'N' :
+				case 'n' :
+					printf("\n=>Cancel\n") ;
+					return ;
+		}
+		printf("Wrong value!! Re-enter please : ") ;
+	}
+ 	
   node_t * curr ;
   node_t * n ;
-
-  do{
-  printf("Are you sure you want to delete all members?(Y/N) : ") ;
-  scanf("%c", &answer) ;
-  getchar() ;
-  if(answer == 'Y' || answer == 'y') ;
-  else if(answer == 'N' || answer == 'n')
-    return ;
-  else{
-    k = 1 ;
-    printf("\n") ;
-  }
-  }while(k) ;
-  while(0 <= l->length){
+  
+	while(0 <= l->length){
 	  n = (node_t *) malloc(sizeof(* n)) ;
     curr = l->first ;
     n = curr ;

@@ -79,7 +79,7 @@ void display_menu(){
 	printf("**** grade management system ****\n");
 	printf("*********************************\n");
 	printf("*    0. Print all members       *\n");
-	printf("*    1. Add a new membber       *\n");
+	printf("*    1. Add a new member        *\n");
   printf("*    2. Remove a member         *\n"); 
 	printf("*    3. Modify a member         *\n");
 	printf("*    4. Open a file             *\n");
