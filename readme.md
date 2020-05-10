@@ -1,22 +1,21 @@
-# OSSL
-## mini_project
-### This program calculates the scores of OSSL classes and prints out the scores and credits in a report format. 
+# OSSL - mini_project
+**This program calculates the scores of OSSL classes and prints out the scores and credits in a report format. 
 System control in the manner selected to the menu.
 This system will make it easier to manage students' scores.
-
+**
 
 
 ## List : + - * 아무거나
 
 
 
-- list1
++ list1
 
-  - list2
+* list2
 
-    - list3
+- list3
 
-      - list4
+- list4
 
 
 
