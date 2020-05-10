@@ -86,7 +86,7 @@ void display_menu(){
   printf("*    5. Save a file             *\n");
 	printf("*    6. Clear all members       *\n");
   printf("*    7. Sorts the data          *\n");
-  printf("*    8. Search the Members      *\n");
+  printf("*    8. Search the members      *\n");
 	printf("*    9. Member statistics       *\n");
 	printf("*   99. Quit                    *\n");
 	printf("*********************************\n");
