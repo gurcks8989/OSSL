@@ -1,12 +1,6 @@
 # OSSL
-##mini_project
-
-#Title
-
-
-
-## Header Section1
-
+## mini_project
+### This program calculates the scores of OSSL classes and prints out the scores and credits in a report format.
 
 
 ## List : + - * 아무거나
