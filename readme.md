@@ -43,7 +43,6 @@ Header1 | Header2 | Header3 | Header4
 
  
 
-![대체텍스트](https://github.com/gurcks8989/OSSL/blob/master/menu.jpg "Menu")
 
  
 
@@ -56,9 +55,6 @@ like this
  
 
 ## Syntax highlight - C
-
-
-
 ```c
 
 printf("\n\n");
@@ -80,6 +76,9 @@ printf("*   99. Quit                    *\n");
 printf("*********************************\n");
 
 ```
+![대체텍스트](https://github.com/gurcks8989/OSSL/blob/master/menu.jpg "Menu")
+
+>Receive a number from 0 to 9 from the user.
 
 
 
