@@ -43,7 +43,7 @@ Header1 | Header2 | Header3 | Header4
 
  
 
-![대체텍스트](이미지주소 "이미지제목")
+![대체텍스트](https://github.com/gurcks8989/OSSL/blob/master/menu.jpg "Menu")
 
  
 
