@@ -55,15 +55,29 @@ like this
 
  
 
-## Syntax highlight - python
+## Syntax highlight - C
 
 
 
-```python
+```c
 
-import pandas as pd
-
-print(“Hello World!”)
+printf("\n\n");
+printf("*********************************\n");
+printf("**** grade management system ****\n");
+printf("*********************************\n");
+printf("*    0. Print all members       *\n");
+printf("*    1. Add a new member        *\n");
+printf("*    2. Remove a member         *\n");
+printf("*    3. Modify a member         *\n");
+printf("*    4. Open a file             *\n");
+printf("*    5. Save a file             *\n");
+printf("*    6. Clear all members       *\n");
+printf("*    7. Sorts the data          *\n");
+printf("*    8. Search the Members      *\n");
+printf("*    9. Member statistics       *\n");
+printf("*   10. defragment              *\n");
+printf("*   99. Quit                    *\n");
+printf("*********************************\n");
 
 ```
 
