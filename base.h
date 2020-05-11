@@ -44,4 +44,11 @@ void search_the_members(linkedlist_t * l) ;
 
 int not_eqauls(int menu, node_t * node_1, char input[]) ;
 
+//update this part
+//find a data record(s) by specifying 2+ (2 or more than 2) conditions
+int not_search(node_t * node_1, char name[], char number[]);
+
+void search_the_exact_member(linkedlist_t * l);
+//finish
+
 #endif

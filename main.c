@@ -60,6 +60,8 @@ void input_handler(char input[], linkedlist_t * l){
 		search_the_members(l) ;
 	else if(!strcmp(input, "9"))
 		display_stats(l);	
+	else if(!strcmp(input, "10"))
+		search_the_exact_member(l);
 	else if(!strcmp(input, "99"))
 		printf("Terminating... bye!\n"); // Quit - no operation (an empty statement with a semi-colon)
 	else
@@ -88,6 +90,7 @@ void display_menu(){
   printf("*    7. Sorts the data          *\n");
   printf("*    8. Search the members      *\n");
 	printf("*    9. Member statistics       *\n");
+	printf("*    10. Search only one member *\n");
 	printf("*   99. Quit                    *\n");
 	printf("*********************************\n");
 }
