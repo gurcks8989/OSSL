@@ -501,3 +501,42 @@ int not_eqauls(int menu, node_t * node_1, char input[]){
     default : return 0 ;
   }
 }
+
+//include this part - Jihyeon Song
+//find a data record(s) with two conditions(name, student number)
+int not_search(node_t * node_1, char name[], char number[]){
+	if(strcmp(node_1->name, name) == 0 && strcmp(node_1->number, number) == 0){
+		return 0;
+	}
+	else{
+		return 1;
+	}
+}
+
+void search_the_exact_member(linkedlist_t * l){
+	char s_name[20]={0x0} ;
+	char s_number[20]={0x0} ;
+	node_t * n ;
+	linkedlist_t * search_result ;
+	search_result = linkedlist_alloc () ;
+
+	printf("Enter the student's name >") ;
+	scanf("%s", s_name) ;
+	getchar() ; 
+	printf("Enter the student's student number >");
+	scanf("%s", s_number) ;
+	getchar() ; 
+	printf("\n\n") ;
+  
+	n = l->first ;
+	for(int i=0; i < l->length; i++, n=n->next){
+		if(not_search(n, s_name, s_number))      continue ;
+		else{
+			linkedlist_insert(search_result, n->name, n->number, n->attend, n->midterm, n->project, n->assign) ;
+		}
+	}
+	print_all_members(search_result) ;
+  
+	free(search_result) ;
+}
+//finish
