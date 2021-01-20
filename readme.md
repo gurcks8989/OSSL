@@ -5,7 +5,7 @@
 + This system will make it easier to manage students' scores.
 
 
-## Syntax highlight linkedlist - C    I will be fix
+## Syntax highlight linkedlist - C 
 ```c
 typedef struct node {
    char name[20] ;
